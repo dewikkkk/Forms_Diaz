@@ -52,17 +52,17 @@
         document.getElementById("myForm").addEventListener("submit", function (event) {
             event.preventDefault();
 
-            // Collecting form data
+            
             let name = document.getElementById("name").value;
             let address = document.getElementById("address").value;
             let contact = document.getElementById("contact").value;
             let birthdate = document.getElementById("birthdate").value;
             let age = document.getElementById("age").value;
-            let hobbies = document.getElementById("hobbies").value.split(","); // Convert to array
+            let hobbies = document.getElementById("hobbies").value.split(","); 
 
             alert("Form submitted successfully!");
 
-            // Save to localStorage to display on thankyou page
+            
             localStorage.setItem("formData", JSON.stringify({
                 name, address, contact, birthdate, age, hobbies
             }));
