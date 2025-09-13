@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .form-container {
+            display: inline-block;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+
+        .input-field {
+            padding: 8px;
+            margin-bottom: 10px;
+            width: 90%;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .submit-btn {
+            padding: 8px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Registration Form</h1>
+    <form id="myForm" class="form-container">
+        <input type="text" id="name" class="input-field" placeholder="Enter your name" required><br>
+        <input type="text" id="address" class="input-field" placeholder="Enter your address" required><br>
+        <input type="text" id="contact" class="input-field" placeholder="Enter your contact number" required><br>
+        <input type="text" id="birthdate" class="input-field" placeholder="Enter your birthdate" required><br>
+        <input type="text" id="age" class="input-field" placeholder="Enter your age" required><br>
+        <input type="text" id="hobbies" class="input-field" placeholder="Enter hobbies (comma separated)" required><br>
+        <input type="submit" class="submit-btn" value="Submit">
+    </form>
+
+    <script>
+        document.getElementById("myForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+            // Collecting form data
+            let name = document.getElementById("name").value;
+            let address = document.getElementById("address").value;
+            let contact = document.getElementById("contact").value;
+            let birthdate = document.getElementById("birthdate").value;
+            let age = document.getElementById("age").value;
+            let hobbies = document.getElementById("hobbies").value.split(","); // Convert to array
+
+            alert("Form submitted successfully!");
+
+            // Save to localStorage to display on thankyou page
+            localStorage.setItem("formData", JSON.stringify({
+                name, address, contact, birthdate, age, hobbies
+            }));
+
+            window.location.href = "thankyou.html";
+        });
+    </script>
+</body>
+</html>
